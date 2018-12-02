@@ -16,14 +16,14 @@ public class LeeFicheroTexto {
 		
 			archivo = new File(RUTA_FICHERO);
 			
-			// Lectura de fichero de texto usando objetos Filereader y BufferedReader
-			// Forma tradicional de hacerlo en jdk anteriores al JDK 5
+			
 			
 			System.out.println("INFORMACIÓN DEL FICHERO:");
 			System.out.println("Nombre Fichero: " + archivo.getName() );
 			System.out.println("Directorio del fichero: " + archivo.getParent());
 			
-			
+			// Lectura de fichero de texto usando objetos Filereader y BufferedReader
+			// Forma tradicional de hacerlo en jdk anteriores al JDK 5
 
 			System.out.println("\n***** Fichero leido con objetos Filereader y BufferedReader.");
 			leeFicheroTradicional(archivo);
