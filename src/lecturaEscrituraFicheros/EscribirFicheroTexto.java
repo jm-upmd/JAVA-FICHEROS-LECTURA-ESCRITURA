@@ -16,7 +16,8 @@ public class EscribirFicheroTexto {
              * FileWriter fichero = new FileWriter("c:/fichero.txt",true);
              */
             pw = new PrintWriter(fichero);
-
+            
+            // Escribimos 10 líneas en fichero.
             for (int i = 0; i < 10; i++)
                 pw.println("Escribiendo en el fichero la línea " + i);
 

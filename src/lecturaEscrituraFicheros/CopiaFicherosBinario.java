@@ -31,11 +31,13 @@ public class CopiaFicherosBinario {
 			BufferedOutputStream bufferedOutput = new BufferedOutputStream(fileOutput);
 			
 			// Bucle para leer de un fichero y escribir en el otro.
+			// Utilizamos un array de bytes donde se irán depositando los datos del fichero origen
+			// por bufferredInput.read() y de donde serán leídos por burreredOutput.write
 			byte [] array = new byte[1000];
-			int leidos = bufferedInput.read(array);
+			int leidos = bufferedInput.read(array); // leidos es el numro de bytes leidos y depositados en array
 			while (leidos > 0)
 			{
-				bufferedOutput.write(array,0,leidos);
+				bufferedOutput.write(array,0,leidos); // Lee desde posición 0 tantos elementos como indica leidos
 				leidos=bufferedInput.read(array);
 			}
 
