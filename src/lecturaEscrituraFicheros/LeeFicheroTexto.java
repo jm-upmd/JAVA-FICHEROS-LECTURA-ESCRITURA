@@ -47,6 +47,9 @@ public class LeeFicheroTexto {
 			// hacer una lectura comoda (disponer del metodo readLine()).
 			fr = new FileReader(fichero);
 			br = new BufferedReader(fr);
+			
+			// Si queremos indicar tipo de codificación del fichero
+			 // br = new BufferedReader( new InputStreamReader( new FileInputStream(fichero), "UTF8"));
 
 			// Lectura del fichero
 			String linea;
