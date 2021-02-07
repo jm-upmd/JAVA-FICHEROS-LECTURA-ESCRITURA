@@ -1,0 +1,18 @@
+Este es un fichero de texto utilizado como ejemplo de recurso java.
+Un  fichero de recurso java normalmente reside en el mismo classpath que la aplicación y es
+incorporado al paquete (.jar .zip) y forma parte del programa.
+
+Esta es la forma de manejar un fichero de recurso:
+
+
+InputStream is = MiClase.class.getResourceAsStream("/fichero.txt");
+
+Otra forma de hacerlo es con la clase ClassLoader
+
+	  ClassLoader loader = MiClase.class.getClassLoader();
+	  InputStream is=null; 
+	  try { 
+	  	is = loader.getResource("palabras.txt").openStream(); 
+	  } catch (IOException e) { 
+	  	e.printStackTrace(); 
+	  }
