@@ -11,7 +11,8 @@ public class LeeFicheroTexto {
 
 	public static void main(String[] args) {
 		
-		final String RUTA_FICHERO = "O:\\Curso Java\\Proyectos Eclipse\\ExportarImportarProyectoEclipse.txt";
+		final String RUTA_FICHERO = "H:\\Cursos Actuales\\Curso Java\\Proyectos Eclipse\\ExportarImportarProyectoEclipse.txt";
+		
 		File archivo = null;
 		
 			archivo = new File(RUTA_FICHERO);
@@ -99,6 +100,58 @@ public class LeeFicheroTexto {
 			System.out.println("No se encuentra el fichero:\n" + fichero.getAbsolutePath());
 		}	
 		// No es necesario controlar IOexception.
+	}
+	
+	
+    /* Versiones de los métodos anteriores con bloque try() special para objetos 
+	   que implementan interface Autocloseable.
+	   Al abrir así recursos que implementan esta interface, no es necesario que
+	   nosotros los cerremos luego con close. Tanto si se produce una excepción como
+	   si no, se ejecutará automáticamente el close al salir del bloque try.
+	*/
+	 
+	
+	static void leeFicheroTradicionalV2(File fichero){
+		
+
+		// Utilizamos try ()
+		try(FileReader fr = new FileReader(fichero); BufferedReader br = new BufferedReader(fr)) {
+
+			// Lectura del fichero
+			String linea;
+			while ((linea = br.readLine()) != null)
+				System.out.println(linea);
+			
+		} catch (FileNotFoundException e) {
+			System.out.println("No se encuentra el fichero:\n" + fichero.getAbsolutePath());
+			
+		} catch (IOException e) {
+			e.printStackTrace();		
+		} 
+		
+		// No es necesaria bloque fynally
+	}
+	
+	static void leeFicheroConScannerV2(File fichero) {
+		
+		
+		try (Scanner scnr = new Scanner(fichero); ){
+			// Leyendo líneas del fichero con Scanner
+			
+			while (scnr.hasNextLine()) { 		// Mientras queden líneas por leer
+				String linea = scnr.nextLine(); //Lee linea
+				
+				System.out.println(linea);
+
+			}
+			
+			//scnr.close(); no cecesario, se cierra automaticamente al terminar el try
+
+		} catch (FileNotFoundException e) {
+			System.out.println("No se encuentra el fichero:\n" + fichero.getAbsolutePath());
+		}	
+		
+		// No es necesario controlar IOexception lo gestiona Scanner.
 	}
 
 }
