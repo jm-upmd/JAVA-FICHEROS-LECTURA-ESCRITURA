@@ -9,7 +9,7 @@ public class EscribirFicheroTexto {
 		FileWriter fichero = null;
 		PrintWriter pw = null;
 		try {
-			fichero = new FileWriter("F:\\Curso Java\\Proyectos Eclipse\\ficheroOut.txt");
+			fichero = new FileWriter("D:\\ficheroOut.txt");
 
 			/*
 			 * Para añadir al final de un fichero ya existente FileWriter fichero = new
@@ -20,6 +20,7 @@ public class EscribirFicheroTexto {
 			// Escribimos 10 líneas en fichero.
 			for (int i = 0; i < 10; i++)
 				pw.println("Escribiendo en el fichero la línea " + i);
+		
 
 		} catch (Exception e) {
 			e.printStackTrace();

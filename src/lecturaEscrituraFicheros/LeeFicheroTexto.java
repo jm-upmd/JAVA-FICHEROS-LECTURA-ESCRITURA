@@ -47,6 +47,7 @@ public class LeeFicheroTexto {
 			// Apertura del fichero y creacion de BufferedReader para poder
 			// hacer una lectura comoda (disponer del metodo readLine()).
 			fr = new FileReader(fichero);
+
 			br = new BufferedReader(fr);
 			
 			// Si queremos indicar tipo de codificación del fichero
@@ -54,21 +55,27 @@ public class LeeFicheroTexto {
 
 			// Lectura del fichero
 			String linea;
+			
 			while ((linea = br.readLine()) != null)
 				System.out.println(linea);
+			
+	
 			
 		} catch (FileNotFoundException e) {
 			System.out.println("No se encuentra el fichero:\n" + fichero.getAbsolutePath());
 			
 		} catch (IOException e) {
 			e.printStackTrace();		
+			
 		} finally { // finally siempre se ejecuta tras el try{...}  haya o no excepción
 			// En el finally cerramos el fichero, para asegurarnos
 			// que se cierra tanto si todo va bien como si salta
 			// una excepcion.
+		
 			try {
-				if (fr != null) {
+				if (fr != null) {	
 					fr.close();
+					
 				}
 			} catch (Exception e2) {  // si se produce error al intentar cerrar fichero.
 				e2.printStackTrace();
@@ -85,6 +92,7 @@ public class LeeFicheroTexto {
 		try {
 			scnr = new Scanner(fichero); //Se le pasa como parametro el objeto File
 
+			
 			// Leyendo líneas del fichero con Scanner
 			
 			while (scnr.hasNextLine()) { 		// Mientras queden líneas por leer

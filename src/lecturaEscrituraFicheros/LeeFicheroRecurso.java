@@ -1,5 +1,6 @@
 package lecturaEscrituraFicheros;
 
+import java.io.File;
 import java.io.InputStream;
 import java.util.MissingResourceException;
 import java.util.Scanner;
@@ -12,6 +13,8 @@ public class LeeFicheroRecurso {
 		leeFicheroRecurso("ejemplo_fichero_recurso.txt");
 	}
 	
+	
+	
 	static void leeFicheroRecurso(String nombre) {
 		
 	String fichRecurso = "/" + nombre; 	
@@ -23,10 +26,10 @@ public class LeeFicheroRecurso {
 	 * Otra forma de obtener referencia al fichero de recurso. 
 	 * Es decir, de hacer lo mismo de arriba 
 	 * 
-	 * ClassLoader loader = JuegoAhorcado.class.getClassLoader();
+	 * ClassLoader loader = LeeFicheroRecurso.class.getClassLoader();
 	 * InputStream is=null; 
 	 * try { 
-	 * 	is = loader.getResource("palabras.txt").openStream(); 
+	 * 	is = loader.getResource(fichRecurso).openStream(); 
 	 * } catch (IOException e) { 
 	 * 	e.printStackTrace(); 
 	 * }
@@ -36,7 +39,10 @@ public class LeeFicheroRecurso {
 	
 	Scanner sc = new Scanner(is);
 	
-	System.out.println("** Leyendo fichero de recurso:");
+	System.out.println("** Leyendo fichero de recurso:" );
+	File infoFicheroFile = new File(fichRecurso);
+	System.out.println("Nombre fichero: " + infoFicheroFile.getName());
+
 	while (sc.hasNextLine()) {
 		System.out.println(sc.nextLine());
 	}
